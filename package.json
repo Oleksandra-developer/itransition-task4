@@ -1,0 +1,20 @@
+{
+  "name": "task-4",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "node app.js",
+    "move": "node movesGame.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "create-hmac": "^1.1.7",
+    "dotenv": "^10.0.0",
+    "secure-random": "^1.1.2"
+  }
+}
