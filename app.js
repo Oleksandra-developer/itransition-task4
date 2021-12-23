@@ -24,13 +24,8 @@ function isValidChoise(el, moves) {
 };
 
 function isUniqueElements (moves) {
- let result = [];
- for (let move of moves) {
-  if (!result.includes(move)) {
-  result.push(move);
-  }
- }
- return result
+  const repeat = moves.filter((item, index)=> moves.indexOf(item)!==index)
+  return repeat.length===0
 }
 
 const game=()=>{
@@ -42,7 +37,7 @@ const game=()=>{
     game();
     return;
    } 
-   if (isUniqueElements(gameElements)) {
+   if (!isUniqueElements(gameElements)) {
     console.log("Sorry, your elements are repeated")
     game();
     return;
@@ -59,7 +54,7 @@ const game=()=>{
     const encrypt = new Encrypt(compMove);
     console.log("HMAC : " + encrypt.cryptoMove)
     console.table(gameElements);
-    
+
     rl.question( 'Make you choise by index!\n',
     value=> {
      if (!isValidChoise(value, gameElements)) {
@@ -69,7 +64,7 @@ const game=()=>{
     }
 
     console.log('Your choise is ', '"', gameElements[value], '"')
-    console.log(`My choise is ${compMove}, so ...`)
+    console.log(`My choise is "${compMove}", so ...`)
     
     if (compMove == gameElements[value]) {
      console.log('Draw!')
